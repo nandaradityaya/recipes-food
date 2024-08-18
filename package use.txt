@@ -1,0 +1,13 @@
+
+composer require filament/filament:"^3.2" -W
+ 
+php artisan filament:install --panels
+
+php artisan make:filament-user
+
+- php artisan make:filament-resource Recipe  = membuat CRUD untuk filament
+- php artisan make:filament-relation-manager RecipeResource tutorials name = untuk membuat relasi di filament, jadi si model Recipe mempunyai relasi ke table tutorials dengan fieldnya name
+
+- php artisan make:resource Api/CategoryResource =  membuat resourece API
+- php artisan make:controller Api/CategoryController =  membuat controller API
+- php artisan install:api = membuat route api
