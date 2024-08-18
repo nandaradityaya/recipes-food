@@ -24,7 +24,7 @@ class RecipeResource extends JsonResource
             'thumbnail' => $this->thumbnail,
             'about' => $this->about,
             'category' => new CategoryResource($this->whenLoaded('category')), // new yaitu berarti ambil categorynya ketika category di load
-            'recipe ingredients' => RecipeIngredientResource::collection ($this->whenLoaded('recipeIngredients')),
+            'recipe_ingredients' => RecipeIngredientResource::collection($this->whenLoaded('recipeIngredients')), // panggil RecipeIngredientResource dan pada saat loaded panggil function recipeIngredients yg ada di model Recipe.php
             'photos' => RecipePhotoResource::collection($this->whenLoaded('photos')),
             'tutorials' => RecipeTutorialResource::collection($this->whenLoaded('tutorials')),
             'author' => new RecipeAuthorResource($this->whenLoaded('author')),
