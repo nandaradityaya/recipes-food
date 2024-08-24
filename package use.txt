@@ -12,6 +12,15 @@ php artisan make:filament-user
 - php artisan make:controller Api/CategoryController =  membuat controller API
 - php artisan install:api = membuat route api
 
+- php artisan config:publish cors = membuat cors origin
+
+- php artisan make:model ApiKey -m = membuat model ApiKey
+- php artisan make:filament-resource ApiKey = membuat CRUD ApiKey
+- php artisan make:middleware CheckApiKey = utk melindungin end point API
+
+daftarkan juga middleware di bootstrap/app.php
+header harus mengirimkan X-API-KEY yg berisi key yg telah dibuat di halaman admin. ini untuk menjaga aplikasi kita dan jika ingin berkolaborasi dengan banyak projek frontend
+
 http://127.0.0.1:8000/admin/
 miraclecook@owner.com
 rahasia

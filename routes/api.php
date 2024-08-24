@@ -10,11 +10,15 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/recipes/search', [SearchController::class, 'index']);
+// jaga dengan API KEY
+Route::middleware('api_key')->group(function () {
+    Route::get('/recipes/search', [SearchController::class, 'index']);
 
-Route::get('/category/{category:slug}', [CategoryController::class, 'show']);
-Route::apiResource('/categories', CategoryController::class); // apiResource berisi GET, POST, PUT, DELETE, dll
+    Route::get('/category/{category:slug}', [CategoryController::class, 'show']);
+    Route::apiResource('/categories', CategoryController::class); // apiResource berisi GET, POST, PUT, DELETE, dll
+    
+    
+    Route::get('/recipe/{recipe:slug}', [RecipeController::class, 'show']);
+    Route::apiResource('/recipes', RecipeController::class);
+});
 
-
-Route::get('/recipe/{recipe:slug}', [RecipeController::class, 'show']);
-Route::apiResource('/recipes', RecipeController::class);
