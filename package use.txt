@@ -11,3 +11,7 @@ php artisan make:filament-user
 - php artisan make:resource Api/CategoryResource =  membuat resourece API
 - php artisan make:controller Api/CategoryController =  membuat controller API
 - php artisan install:api = membuat route api
+
+http://127.0.0.1:8000/admin/
+miraclecook@owner.com
+rahasia

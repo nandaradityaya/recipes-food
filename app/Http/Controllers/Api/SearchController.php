@@ -12,7 +12,7 @@ class SearchController extends Controller
     //
     public function index (Request $request) {
         $query = $request->input('query'); // ambil yg di inputkan oleh user | paramsnya masukin query, karna harus sesuai. contoh: localhost:8000/api/recipes/search?query=burger . search?QUERY jangan sampe beda
-        $recipes = Recipe::where('name', 'LIKE', "%{$query}%")->get(); // cari value yg 'name' nya mirip berdasarkan apa yg di inputkan oleh user
+        $recipes = Recipe::with('author')->where('name', 'LIKE', "%{$query}%")->get(); // cari value yg 'name' nya mirip berdasarkan apa yg di inputkan oleh user dan ambil juga relasi dari table author
         return RecipeResource::collection($recipes); // kirim datanya searchnya ke RecipeResource dan jadikan sbg collection
     }
 }

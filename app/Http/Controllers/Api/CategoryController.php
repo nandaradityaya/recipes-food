@@ -20,7 +20,7 @@ class CategoryController extends Controller
     // untuk show details di halaman detail categpry
     public function show (Category $category)
     {
-        $category->load('recipes'); // ambil seluruh data di recipes yg berada di category bersangkutan
+        $category->load(['recipes.category', 'recipes.author']); // ambil seluruh data di recipes bersama dgn category dan recipes bersama dengan author yg berada di category bersangkutan
         $category->loadCount('recipes')->get(); // ambil jumlah recipes yg berada di category tsb
         return new CategoryResource($category); // gunakan new bukan collection, karna di function show ini bertujuan untuk menunjukan halaman detail sehingga hanya satu category yg di tampilkan
     }
